@@ -10,9 +10,9 @@ namespace KnivesShop.Web.Helpers
 {
     public static class EmailHelper
     {
-        private const string AppEmail = "stankovski@yabolka.com";
-        private const string AppEmailPass = "system1986";
-        private const string AppEmailHostName = "mail.yabolka.com";
+        private const string AppEmail = "Test";
+        private const string AppEmailPass = "test";
+        private const string AppEmailHostName = "mail.test.com";
         private const int AppEmailHostPort = 26;
 
         public static void MakeOrder(OrderArticleViewModel orderModel)
