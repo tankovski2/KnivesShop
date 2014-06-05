@@ -26,8 +26,8 @@ namespace KnivesShop.Web.Areas.Administration.Controllers
                 Configuration myConfiguration = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
                 string name = myConfiguration.AppSettings.Settings["LogoImage"].Value;
 
-                FileHelper.DeleteLogo(name);
                 FileHelper.SaveLogo(file);
+                FileHelper.DeleteLogo(name);
 
                 myConfiguration.AppSettings.Settings["LogoImage"].Value = file.FileName;
                 myConfiguration.Save();
