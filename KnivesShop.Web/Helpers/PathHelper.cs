@@ -27,6 +27,17 @@ namespace KnivesShop.Web.Helpers
             }
         }
 
+        public static string AppDataAbsolutePath
+        {
+            get
+            {
+                string relativeFolderPath = ConfigurationManager.AppSettings["DataDir"];
+                string absoluteFolderPath = AppDomain.CurrentDomain.BaseDirectory + relativeFolderPath;
+
+                return absoluteFolderPath;
+            }
+        }
+
         public static string LogoImagesRelativeUrl
         {
             get

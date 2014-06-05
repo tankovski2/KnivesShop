@@ -18,6 +18,10 @@ namespace KnivesShop.Web.Helpers
                 string timeStamp = DateTime.Now.ToString("yyyyMMddHHmmssfff");
                 string fileName = timeStamp + "_" + file.FileName;
 
+                if (!Directory.Exists(PathHelper.AppDataAbsolutePath))
+                {
+                    Directory.CreateDirectory(PathHelper.AppDataAbsolutePath);
+                }
                 if (!Directory.Exists(absoluteFolderPath))
                 {
                     Directory.CreateDirectory(absoluteFolderPath);
@@ -80,6 +84,10 @@ namespace KnivesShop.Web.Helpers
             if (Regex.IsMatch(file.ContentType, "image/\\S+"))
             {
                 string absoluteFilePath = PathHelper.LogoImagesAbsolutePath + file.FileName;
+                if (!Directory.Exists(PathHelper.AppDataAbsolutePath))
+                {
+                    Directory.CreateDirectory(PathHelper.AppDataAbsolutePath);
+                }
                 if (!Directory.Exists(PathHelper.LogoImagesAbsolutePath))
                 {
                     Directory.CreateDirectory(PathHelper.LogoImagesAbsolutePath);
