@@ -66,9 +66,12 @@ namespace KnivesShop.Web.Helpers
         public static void DeleteLogo(string logoName)
         {
             string absoluteFilePath = PathHelper.LogoImagesAbsolutePath + logoName;
-            if (File.Exists(absoluteFilePath))
+            if (Directory.Exists(PathHelper.LogoImagesAbsolutePath))
             {
-                File.Delete(absoluteFilePath);
+                if (File.Exists(absoluteFilePath))
+                {
+                    File.Delete(absoluteFilePath);
+                }
             }
         }
 
