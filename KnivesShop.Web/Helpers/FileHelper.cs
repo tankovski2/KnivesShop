@@ -77,6 +77,10 @@ namespace KnivesShop.Web.Helpers
             if (Regex.IsMatch(file.ContentType, "image/\\S+"))
             {
                 string absoluteFilePath = PathHelper.LogoImagesAbsolutePath + file.FileName;
+                if (!Directory.Exists(PathHelper.LogoImagesAbsolutePath))
+                {
+                    Directory.CreateDirectory(PathHelper.LogoImagesAbsolutePath);
+                }
                 if (File.Exists(absoluteFilePath))
                 {
                     File.Delete(absoluteFilePath);
