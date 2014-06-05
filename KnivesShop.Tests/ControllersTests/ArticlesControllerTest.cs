@@ -357,30 +357,6 @@ namespace KnivesShop.Tests.ControllersTests
         }
 
         [TestMethod]
-        public void SearchResults_WithNoMatchingCriterias_MustReturnEmptyList()
-        {
-            //Mock repository
-            var mockedArticles = new Mock<IRepository<Article>>();
-            mockedArticles.Setup(repo => repo.All()).Returns(_articles.AsQueryable());
-
-            //Mock data
-            var mockedUow = new Mock<IUowData>();
-            mockedUow.Setup(uow => uow.Articles).Returns(() => { return mockedArticles.Object; });
-
-            // Act
-            ArticlesController articlesController = new ArticlesController(mockedUow.Object);
-            var searchModel = new SearchArticlesViewModel
-            {
-                FromPrice = 50
-            };
-
-            var results = articlesController.SearchResults(searchModel) as ViewResult;
-            var model = results.Model as IList<ArticleViewModel>;
-
-            Assert.AreEqual(0, model.Count);
-        }
-
-        [TestMethod]
         public void SearchResults_WithFromPriceBiggerThanToPrice_MustReturnTheSameSearchModel()
         {
             //Mock repository
