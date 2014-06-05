@@ -1,0 +1,15 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
+}
+<section>
+    <div class="col-lg-4">
+        <img src="~/images/customImages/error.png" />
+    </div>
+    <div class="col-lg-8">
+        <h1 class="text-danger">@KnivesShop.Web.Resources.Labels.ErroPage</h1>
+        <h2 class="text-danger">@Model.Exception.Message</h2>
+    </div>
+</section>
+

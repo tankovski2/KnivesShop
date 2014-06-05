@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;AttachDbFilename=|DataDirectory|\KnivesShop.mdf;Initial Catalog=KnivesShop;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\Projects\\KnivesShop\\KnivesShop\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="KnivesShop.Data.ApplicationDbContext-Web.config Connection String" description="KnivesShop.Data.ApplicationDbContext Connection String used in web.config by the application to access the database." defaultValue="KnivesShop.Data.ApplicationDbContext_ConnectionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\Projects\\KnivesShop\\KnivesShop\.Web\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='KnivesShop.Data.ApplicationDbContext']/@connectionString" />
+  </parameter>
+</parameters>

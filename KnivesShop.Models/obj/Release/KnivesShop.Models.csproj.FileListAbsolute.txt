@@ -1,0 +1,14 @@
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Release\KnivesShop.Models.dll.config
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Release\KnivesShop.Models.dll
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Release\KnivesShop.Models.pdb
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Release\EntityFramework.dll
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Release\EntityFramework.SqlServer.dll
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Release\Microsoft.AspNet.Identity.Core.dll
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Release\EntityFramework.xml
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Release\EntityFramework.SqlServer.xml
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Release\Microsoft.AspNet.Identity.Core.xml
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Projects\KnivesShop\KnivesShop.Models\obj\Release\KnivesShop.Models.csprojResolveAssemblyReference.cache
+E:\Projects\KnivesShop\KnivesShop.Models\obj\Release\KnivesShop.Models.dll
+E:\Projects\KnivesShop\KnivesShop.Models\obj\Release\KnivesShop.Models.pdb

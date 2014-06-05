@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<section class="full-height-width scrolable">
+    <h2>Admin panel</h2>
+    <div>
+        <div class="btn-group">
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Categories <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        @Html.ActionLink("All", "Index", "CategoriesAdmin", new { area = "Administration" }, null)
+                    </li>
+                    <li>
+                        @Html.ActionLink("New", "Create", "CategoriesAdmin", new { area = "Administration" }, null)
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Artilces <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li>
+                        @Html.ActionLink("Search", "SearchArticles", "ArticlesAdmin", new { area = "Administration" }, null)
+                    </li>
+                    <li>
+                        @Html.ActionLink("New", "Create", "ArticlesAdmin", new { area = "Administration" }, null)
+                    </li>
+                </ul>
+            </div>
+            @Html.ActionLink("Change Logo", "ChooseLogo", "Logo", new { area = "Administration" }, new { @class="btn btn-primary" })
+        </div>
+        
+    </div>
+</section>

@@ -1,0 +1,34 @@
+﻿@model KnivesShop.Web.Areas.Administration.Models.CategoryDetailViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    int pageNumber = 1;
+    int.TryParse(Request.QueryString["page"], out pageNumber);
+   
+}
+
+<section class="full-height-width scrolable">
+    <h2>Edit</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Category</h4>
+            <hr />
+
+            @Html.ValidationSummary(true)
+            @Html.EditorForModel()
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Edit" class="btn btn-dark" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index", new { page = pageNumber }, new { @class = "btn btn-default" })
+    </div>
+</section>

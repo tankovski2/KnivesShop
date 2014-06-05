@@ -1,0 +1,147 @@
+﻿@using KnivesShop.Web.Resources
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- PACE Loader -->
+    @*@Scripts.Render("~/js/lib/pace")*@
+    @Styles.Render("~/css/lib/pace")
+    @Scripts.Render("~/js/lib/jquery")
+
+    <!-- END PACE Loader -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="~/images/favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="~/images/favicon/favicon.ico" type="image/x-icon">
+
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    @Styles.Render("~/css/lib/bootstrapCore")
+
+    <!---------Custom css----------->
+    @Styles.Render("~/Content/Site")
+    <!------------------------------>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div id="loader"></div>
+    <div id="main-wrapper">
+        <div id="sidebar">
+            <nav class="navbar navbar-default" role="navigation">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="@Url.Action("Index", "Home", new { area = "" })">
+                        <img src="@KnivesShop.Web.Helpers.PathHelper.LogoImage" class="logo">
+                    </a>
+                </div>
+                <div id="languages-container">
+                    @Html.ActionLink(" ", "ChangeCulture", "Culture",
+                        new
+                        {
+                            lang = (int)KnivesShop.Models.Enums.Culture.bg,
+                            returnUrl = this.Request.RawUrl,
+                            area = ""
+                        }, new { @class = "culture-link", id = "bg-flag" })
+                    @Html.ActionLink(" ", "ChangeCulture", "Culture",
+                        new
+                        {
+                            lang = (int)KnivesShop.Models.Enums.Culture.en,
+                            returnUrl = this.Request.RawUrl,
+                            area = ""
+                        }, new { @class = "culture-link", id = "eng-flag" })
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink(Navigation.Home, "Index", "Home", new { area = "" }, null)</li>
+                        @Html.Action("GetTopCategories", "Categories", new { area = "" })
+                        <li>@Html.ActionLink(Navigation.Search, "SearchArticles", "Articles", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink(Navigation.Contact, "Contact", "Home", new { area = "" }, null)</li>
+                        <li>@Html.ActionLink(Navigation.ShoppingCart, "Basket", "Orders", new { area = "" }, new { @class="basket-link" })</li>
+                        @if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+                        {
+                            <li>@Html.ActionLink("Admin Panel", "Index", "Admin", new { area = "Administration" }, null)</li>
+                        }
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </nav>
+        </div>
+        <div id="container">
+            <div id="admin-partial">
+                @Html.Partial("_LoginPartial")
+            </div>
+            <div class="padding">
+                @Html.Partial("_Alerts")
+                @RenderBody()
+            </div>
+           
+        </div>
+
+    </div>
+    @{
+        string culture = System.Threading.Thread.CurrentThread.CurrentCulture.Name;
+        culture = culture.Replace('-', '_');
+    }
+    <table id="slideleft" style=" overflow:auto; position:fixed; top:25%; z-index:999;">
+        <tr class="slideLeftItem" style="position:fixed;right:-310px;z-index:1000;height:100%;">
+
+            <td>
+                <img src="~/images/customImages/button_facebook.png"
+                     style="top:5px; position:absolute; border-right-width:5px; right:310px;" />
+            </td>
+            <td class="contentBox" style="border:solid 5px #5370AD;
+width:300px;height:300px;position:relative;border-radius:5px;background-color:white;">
+                <div id="fb-root"></div>
+                <script type="text/javascript">
+                    (function () {
+                        var e = document.createElement('script');
+                        e.async = true; e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js#xfbml=1';
+                        document.getElementById('fb-root').appendChild(e);
+                    }());
+                </script>
+                <fb:like-box href="https://www.facebook.com/omgfactsofficial" id="facebook-box"
+                             width="300" show_faces="true"
+                             stream="false" header="false">
+
+                </fb:like-box>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript">
+        jQuery(".slideLeftItem")
+            .append('<div style="font-size:12px;font-family: arial;width:300px;text-align:right;"></div>');
+        jQuery("#slideleft tr").hover(function (beer) {
+            var a = jQuery(this); jQuery("#slideleft tr").not(a).hide();
+            a.css({ "z-index": "9999" }); a.stop().animate({ right: 0 })
+        }, function (beer) {
+            var a = jQuery(this); a.css({ "z-index": "1000" });
+            a.stop().animate({ right: -a.outerWidth() }); jQuery("#slideleft tr").show()
+        });</script>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    @Scripts.Render("~/js/lib/BootstrapCore")
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script>
+    @*<script>
+            var topCategories = document.getElementsByClassName("top-category");
+            if (topCategories.length > 5) {
+                var paddingDiv = document.getElementsByClassName("padding")[0];
+                paddingDiv.className ="padding-type-2";
+            }
+        </script>*@
+    @RenderSection("scripts", required: false)
+    
+</body>
+</html>

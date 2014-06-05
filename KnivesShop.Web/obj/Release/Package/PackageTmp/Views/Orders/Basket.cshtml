@@ -1,0 +1,16 @@
+﻿@using KnivesShop.Web.Helpers
+@using KnivesShop.Web.Resources
+@model IList<KnivesShop.Web.Models.ArticleBasketViewModel>
+@{
+    ViewBag.Title = "Basket";
+}
+
+<section>
+    <div class="shipping-cart">
+        <h2>@Labels.ShopingCart</h2>
+        <br />
+        <div id="basket">
+            @{Html.RenderPartial("_Basket", Model);}
+        </div>
+    </div>
+</section>

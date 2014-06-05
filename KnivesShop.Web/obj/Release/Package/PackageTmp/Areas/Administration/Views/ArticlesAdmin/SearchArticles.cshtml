@@ -1,0 +1,22 @@
+﻿@model KnivesShop.Web.Areas.Administration.Models.ArticlesAdminSearchModel
+@{
+    ViewBag.Title = "SearchArticles";
+}
+
+<section class="full-height-width">
+    @using (Html.BeginForm("Index", "ArticlesAdmin", FormMethod.Get, new { @class = "form-horizontal" }))
+    {
+        @Html.ValidationSummary(true)
+        @Html.EditorForModel()
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="@KnivesShop.Web.Resources.Buttons.Search" class="btn btn-dark" />
+            </div>
+        </div>
+    }
+
+    @Html.ActionLink("Back to admin panel", "Index", "Admin", new { area = "Administration" }, new { @class = "btn btn-default" })
+</section>
+
+
+

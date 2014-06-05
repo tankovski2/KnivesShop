@@ -1,0 +1,14 @@
+﻿@model int?
+@{
+
+    List<SelectListItem> prices = new List<SelectListItem>();
+    prices.Add(new SelectListItem { Text = "1 " + KnivesShop.Web.Resources.Labels.Currency, Value = "1" });
+    for (int i = 10; i < 100; i+=10)
+    {
+        prices.Add(new SelectListItem { Text = i.ToString() + " " + KnivesShop.Web.Resources.Labels.Currency, Value = i.ToString() });
+    }
+
+}
+
+@Html.DropDownList("", prices, KnivesShop.Web.Resources.Labels.SelectPrice, new { @class = "form-control" })
+

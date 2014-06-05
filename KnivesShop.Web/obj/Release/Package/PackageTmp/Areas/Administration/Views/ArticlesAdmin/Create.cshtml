@@ -1,0 +1,34 @@
+﻿@model KnivesShop.Web.Areas.Administration.Models.ArticleCreateViewModel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<section class="full-height-width scrolable">
+    <h2>Create</h2>
+
+    @using (Html.BeginForm("Create", "ArticlesAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Article</h4>
+            <hr />
+
+            @Html.ValidationSummary(true)
+            @Html.EditorForModel()
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-dark" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @{
+            string backUrl = "/Administration/ArticlesAdmin/Index" + Request.Url.Query;
+        }
+        <a href="@backUrl" class="btn btn-default">Back to List</a>
+    </div>
+</section>

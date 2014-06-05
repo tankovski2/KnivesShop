@@ -1,0 +1,6 @@
+﻿@model System.Collections.Generic.IList<KnivesShop.Web.Models.CategoryViewModel>
+
+@foreach (var category in Model)
+{
+    <li>@Html.ActionLink(category.Name, "ArticlesFromCategory", "Articles", new { area = "", id = category.Id }, new { @class="top-category" })</li>
+}

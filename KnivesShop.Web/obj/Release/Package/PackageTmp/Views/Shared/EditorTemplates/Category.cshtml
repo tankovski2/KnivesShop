@@ -1,0 +1,18 @@
+﻿@using KnivesShop.Data
+
+@model int?
+@{
+    var data = new UowData();
+    string culture=System.Threading.Thread.CurrentThread.CurrentCulture.TwoLetterISOLanguageName;
+
+    var avelableCategories = data.Categories.All().Select(category => new SelectListItem
+        {
+            Text = culture == KnivesShop.Models.Enums.Culture.bg.ToString() ? category.NameBg:category.NameEn,
+            Value = category.Id.ToString(),
+            Selected = category.Id == Model
+        });
+
+} 
+
+@Html.DropDownList("", avelableCategories, KnivesShop.Web.Resources.Labels.SelectCategory, new { @class = "form-control" })
+

@@ -1,0 +1,13 @@
+﻿@model bool?
+
+@{
+    List<SelectListItem> values = new List<SelectListItem>
+    {
+        new SelectListItem{Text = "Only top articles", Value = "true", Selected = Model == true},
+        new SelectListItem{Text = "Only normal articles", Value = "false", Selected = Model == false}
+    };
+
+
+}
+
+@Html.DropDownList("", values, "Choose if you look for top articles", new { @class = "form-control" })

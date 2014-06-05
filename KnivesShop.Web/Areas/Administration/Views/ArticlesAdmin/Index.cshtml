@@ -1,0 +1,206 @@
+﻿@model IEnumerable<KnivesShop.Web.Areas.Administration.Models.ArticlesListViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    int? pageNumber = ViewBag.PageNumber;
+    double totalPages = ViewBag.Pages;
+    int? categoryId = ViewBag.CategoryId;
+    int? fromPrice = ViewBag.FromPrice;
+    int? toPrice = ViewBag.ToPrice;
+    string searchSubstring = ViewBag.SearchSubstirng;
+    bool? isTopArticle = ViewBag.IsTopArticle;
+}
+<section class="full-height-width scrolable">
+    <h2>Articles list</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create", new
+   {
+       area = "Administration",
+       categoryId = categoryId,
+       pageNumber = pageNumber,
+       fromPrice = fromPrice,
+       toPrice = toPrice,
+       searchSubstring = searchSubstring,
+       isTopArticle = isTopArticle
+   }, new { @class = " btn btn-success" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameEn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsSelectedForTopArticle)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameEn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsSelectedForTopArticle)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new
+               {
+                   id = item.Id,
+                   area = "Administration",
+                   categoryId = categoryId,
+                   pageNumber = pageNumber,
+                   fromPrice = fromPrice,
+                   toPrice = toPrice,
+                   searchSubstring = searchSubstring,
+                   isTopArticle = isTopArticle
+               }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Details", "Details", new
+               {
+                   id = item.Id,
+                   area = "Administration",
+                   categoryId = categoryId,
+                   pageNumber = pageNumber,
+                   fromPrice = fromPrice,
+                   toPrice = toPrice,
+                   searchSubstring = searchSubstring,
+                   isTopArticle = isTopArticle
+               }, new { @class = "btn btn-info" }) |
+                    @Html.ActionLink("Delete", "Delete", new
+               {
+                   id = item.Id,
+                   area = "Administration",
+                   categoryId = categoryId,
+                   pageNumber = pageNumber,
+                   fromPrice = fromPrice,
+                   toPrice = toPrice,
+                   searchSubstring = searchSubstring,
+                   isTopArticle = isTopArticle
+               }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div>
+        <ul class="pagination">
+            @{
+                if (pageNumber > 1)
+                {
+                    <li>
+                        @Html.ActionLink("«", "Index", "ArticlesAdmin",
+                         new
+                         {
+                             area = "Administration",
+                             categoryId = categoryId,
+                             pageNumber = pageNumber - 1,
+                             fromPrice = fromPrice,
+                             toPrice = toPrice,
+                             searchSubstring = searchSubstring,
+                             isTopArticle = isTopArticle
+                         }, null)
+                    </li>
+                }
+                else
+                {
+                    <li class="disabled">
+                        <a>«</a>
+                    </li>
+                }
+
+                <li>
+                    @using (Html.BeginForm("Index", "ArticlesAdmin", FormMethod.Get))
+                    {
+                        <select name="pageNumber" class="form-control page-list">
+                            <option value="0" selected="selected">GoToPage</option>
+                            @for (int i = 0; i < totalPages; i++)
+                            {
+                                <option value="@(i+1)">@(i + 1)</option>
+                            }
+                        </select>
+                        <input type="hidden" name="categoryId" value="@categoryId" />
+                        <input type="hidden" name="fromPrice" value="@fromPrice" />
+                        <input type="hidden" name="searchSubstring" value="@searchSubstring" />
+                        <input type="hidden" name="toPrice" value="@toPrice" />
+                        <input type="hidden" name="categoryId" value="@categoryId" />
+                        <input type="hidden" name="isTopArticle" value="@isTopArticle.ToString()" />
+
+
+                        <div>Page @pageNumber/@totalPages</div>
+                    }
+                </li>
+
+                if (pageNumber < totalPages)
+                {
+                    <li>
+                        @Html.ActionLink("»", "Index", "ArticlesAdmin",
+                         new
+                         {
+                             area = "Administration",
+                             categoryId = categoryId,
+                             pageNumber = pageNumber + 1,
+                             fromPrice = fromPrice,
+                             toPrice = toPrice,
+                             searchSubstring = searchSubstring,
+                             isTopArticle = isTopArticle
+                         }, null)
+                    </li>
+                }
+                else
+                {
+                    <li class="disabled">
+                        <a>»</a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+
+    @Html.ActionLink("Back to search page", "SearchArticles", "ArticlesAdmin", new { area = "Administration" }, new { @class = "btn btn-default" })
+</section>
+
+@section scripts{
+    <script>
+        var isChanging = false;
+        var currentPage = parseInt(@pageNumber);
+        var pageList = document.getElementsByClassName("page-list")[0];
+        addEvent("change", pageList, function myfunction(ev) {
+            if (!isChanging) {
+                isChanging = true;
+                if (ev.target.value != 0 && ev.target.value != currentPage) {
+                    var form = ev.target.parentNode;
+                    form.submit();
+                }
+                else {
+                    isChanging = false;
+                }
+            }
+
+        })
+
+        function addEvent(evnt, elem, func) {
+            if (elem.addEventListener)  // W3C DOM
+                elem.addEventListener(evnt, func, false);
+            else if (elem.attachEvent) { // IE DOM
+                elem.attachEvent("on" + evnt, func);
+            }
+            else { // No much to do
+                elem[evnt] = func;
+            }
+        }
+    </script>
+}

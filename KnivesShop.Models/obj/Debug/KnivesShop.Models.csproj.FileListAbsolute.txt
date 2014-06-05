@@ -1,0 +1,13 @@
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Debug\KnivesShop.Models.dll
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Debug\KnivesShop.Models.pdb
+E:\Projects\KnivesShop\KnivesShop.Models\obj\Debug\KnivesShop.Models.dll
+E:\Projects\KnivesShop\KnivesShop.Models\obj\Debug\KnivesShop.Models.pdb
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Debug\KnivesShop.Models.dll.config
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Debug\EntityFramework.dll
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Debug\EntityFramework.xml
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\Projects\KnivesShop\KnivesShop.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml

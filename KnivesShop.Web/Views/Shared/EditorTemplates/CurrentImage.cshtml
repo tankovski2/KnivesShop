@@ -1,0 +1,6 @@
+﻿@model string
+
+<input type="hidden" name="@ViewData.ModelMetadata.PropertyName" value="@Model" />
+<img src="@Url.Content("~/" + KnivesShop.Web.Helpers.PathHelper.ArticlesImagesRelativeUrl+Model)" class="image-edit" />
+
+

@@ -1,0 +1,130 @@
+﻿@model IEnumerable<KnivesShop.Web.Areas.Administration.Models.CategoryDetailViewModel>
+
+@{
+    ViewBag.Title = "CategoriesList";
+    int pageNumber = ViewBag.PageNumber;
+    double totalPages = ViewBag.Pages;
+}
+
+<section class="full-height-width scrolable">
+    <h2>Categories list</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create", new { page = pageNumber }, new { @class = " btn btn-success" })
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameEn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameBg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsTopCategory)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameEn)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameBg)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsTopCategory)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id, page = pageNumber }, new { @class = "btn btn-primary" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id, page = pageNumber }, new { @class = "btn btn-info" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id, page = pageNumber }, new { @class = "btn btn-danger" })
+                </td>
+            </tr>
+        }
+    </table>
+
+    <div>
+        <ul class="pagination">
+            @{
+
+                if (pageNumber > 1)
+                {
+                    <li>
+                        @Html.ActionLink("«", "Index", "CategoriesAdmin", new { area = "Administration", page = pageNumber - 1 }, null)
+                    </li>
+                }
+                else
+                {
+                    <li class="disabled">
+                        <a>«</a>
+                    </li>
+                }
+
+                <li>
+                    @using (Html.BeginForm("Index", "CategoriesAdmin", FormMethod.Get))
+                    {
+                        <select name="page" class="form-control page-list">
+                            <option value="0" selected="selected">Go to page: </option>
+                            @for (int i = 0; i < totalPages; i++)
+                            {
+                                <option value="@(i+1)">@(i + 1)</option>
+                            }
+                        </select>
+                        <div>Page @pageNumber/@totalPages</div>
+                    }
+                </li>
+
+                if (pageNumber < totalPages)
+                {
+                    <li>
+                        @Html.ActionLink("»", "Index", "CategoriesAdmin", new { area = "Administration", page = pageNumber + 1 }, null)
+                    </li>
+                }
+                else
+                {
+                    <li class="disabled">
+                        <a>»</a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+
+    @Html.ActionLink("Back to admin panel", "Index", "Admin", new { area="Administration" }, new { @class = "btn btn-default" })
+</section>
+
+@section scripts{
+    <script>
+        var isChanging = false;
+        var currentPage = parseInt(@pageNumber);
+        var pageList = document.getElementsByClassName("page-list")[0];
+        addEvent("change", pageList, function myfunction(ev) {
+            if (!isChanging) {
+                isChanging = true;
+                if (ev.target.value != 0 && ev.target.value != currentPage) {
+                    var form = ev.target.parentNode;
+                    form.submit();
+                }
+                else {
+                    isChanging = false;
+                }
+            }
+
+        })
+
+        function addEvent(evnt, elem, func) {
+            if (elem.addEventListener)  // W3C DOM
+                elem.addEventListener(evnt, func, false);
+            else if (elem.attachEvent) { // IE DOM
+                elem.attachEvent("on" + evnt, func);
+            }
+            else { // No much to do
+                elem[evnt] = func;
+            }
+        }
+    </script>
+}

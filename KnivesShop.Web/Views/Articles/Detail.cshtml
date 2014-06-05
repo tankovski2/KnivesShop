@@ -1,0 +1,38 @@
+﻿@model KnivesShop.Web.Models.ArticleViewModel
+@using KnivesShop.Web.Resources
+@{
+    ViewBag.Title = "Detail";
+}
+
+
+<section id="portfolio" class="portfolio scrolable full-height-width">
+    <div class="row portfolioContainer  text-center">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <div class="portfolio-item illustrations mix_all" style="display: inline-block; opacity: 1;">
+                <a class="popup" href="@Url.Content(Model.Image)" title="@Model.Name">
+                    <span class="project-hover">
+                        <span>
+                            @Model.Name
+                        </span>
+                    </span>
+                    <img src="@Url.Content(Model.Image)" alt="@Model.Image">
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <h3>@Model.Name</h3>
+            <p>@Model.Description</p>
+            <p>@Model.Price @Labels.Currency</p>
+            @*<div>
+                @Html.ActionLink(Buttons.Order, "OrderArticle", "Orders", 
+                new { area = "", articleName = Model.Name },
+                         new { @class = "btn btn-dark" })
+            </div>*@
+            <div>
+                @Html.ActionLink(Buttons.AddToBasket, "AddToBasket", "Orders",
+                new { area = "", articleId = Model.Id },
+                         new { @class = "btn btn-dark" })
+            </div>
+        </div>
+    </div>
+</section>

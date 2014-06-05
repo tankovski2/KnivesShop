@@ -1,0 +1,43 @@
+﻿@model KnivesShop.Web.Models.OrderArticleViewModel
+@using CaptchaMvc.HtmlHelpers;
+@using KnivesShop.Web.Resources;
+@{
+    ViewBag.Title = "OrderArticle";
+}
+<section class="full-height-width">
+    
+    @using (Html.BeginForm("SendOrder", "Orders", FormMethod.Get, new { @class = "form-horizontal" }))
+    {
+         <div class="form-group">
+            @Html.Label("ArticlesNames", new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @*<input class="form-control" type="text" disabled value="@Model.ArticleName" />*@
+                @*@Html.ValidationMessageFor(m => m.ArticleName)*@
+                @*@Html.TextArea(" ", Model.ArticlesNames,
+            new
+            {
+                @class = "form-control disabled",
+                rows = 3,
+            })*@
+                <textarea class="form-control" disabled="disabled" rows="3">@Model.ArticlesNames</textarea>
+            </div>
+        </div>
+        @*@Html.AntiForgeryToken()*@
+        @Html.ValidationSummary(true)
+        @Html.EditorForModel()
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 captcha">
+                @Html.Captcha(Labels.RefreshCaptcha,Labels.EnterCaptcha,6)
+                @Html.ValidationMessage("captcha")
+            </div>
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" id="btnOrder" value="@KnivesShop.Web.Resources.Buttons.Order" class="btn btn-dark" />
+            </div>
+        </div>
+    }
+</section>
+@section scripts{
+        <script>
+            var $ = jQuery;
+        </script>
+    }

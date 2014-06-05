@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+</head>
+<body>
+<table id="slideleft" style=" overflow:auto; position:fixed; top:25%;">
+<tr class="slideLeftItem" style="position:fixed;right:100px;z-index:1000;height:100%;">
+	<td>
+		<img src="https://lh3.googleusercontent.com/-GMJe-Am-U9Q/T4p4bZu7jDI/AAAAAAAAAFs/qQqmMGn-wwg/s800/facebook-vertical.png" style="top:5px; position:absolute; border-left-width:5px; left:318px;"/>
+	</td>
+	<td class="contentBox" style="border:solid 5px #5370AD; width:300px;height:300px;position:relative;border-radius:5px;background-color:white;">
+	<div id="fb-root">
+	</div><script type="text/javascript" >(function() {var e = document.createElement('script'); e.async = true;e.src = document.location.protocol +'//connect.facebook.net/en_US/all.js#xfbml=1';document.getElementById('fb-root').appendChild(e);}());</script><fb:like-box href="https://www.facebook.com/pages/Pekiti-Tirsia-Kali-Mananakop/133156120196238" width="300" show_faces="true" stream="false" header="false"></fb:like-box>
+	</td>
+</tr>
+</table>
+<script type="text/javascript">
+jQuery("#slideleft tr").hover(function(b){var a=jQuery(this);jQuery("#slideleft tr").not(a).hide();a.css({"z-index":"9999"});a.stop().animate({right:0})},function(b){var a=jQuery(this);a.css({"z-index":"1000"});a.stop().animate({right:-a.outerWidth()});jQuery("#slideleft tr").show()});</script>
+
+</body>
+</html>

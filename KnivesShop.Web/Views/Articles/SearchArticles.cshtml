@@ -1,0 +1,17 @@
+﻿@model KnivesShop.Web.Models.SearchArticlesViewModel
+@{
+    ViewBag.Title = "SearchArticles";
+}
+
+<section class="full-height-width">
+        @using (Html.BeginForm("SearchResults", "Articles", FormMethod.Get, new { @class = "form-horizontal" }))
+        {
+            @Html.ValidationSummary(true)
+            @Html.EditorForModel()
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="@KnivesShop.Web.Resources.Buttons.Search" class="btn btn-dark" />
+                </div>
+            </div>
+        }
+</section>

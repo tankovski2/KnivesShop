@@ -1,0 +1,38 @@
+﻿@model IList<KnivesShop.Web.Models.ArticleViewModel>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<section id="home" class="home">
+    <!-- Superslides -->
+    <div id="home-slide">
+        <ul class="slides-container text-center">
+            @foreach (var article in Model)
+            {
+                 <li>
+                <div class="slide-text">
+                    <h2>@article.Name</h2>
+                    <br />
+                    <span>@article.Price @KnivesShop.Web.Resources.Labels.Currency</span>
+                    <br />
+                    <br />
+                    @Html.ActionLink(KnivesShop.Web.Resources.Buttons.Details, "Detail", "Articles", 
+                    new { area = "", articleId =article.Id }, 
+                    new { @class = "btn btn-slider btn-dark" })
+                </div>
+                <div class="slide-filter"></div>
+                <div style="background-image: url('@Url.Content(article.Image)');" class="bg-parallax parallaxize"></div>
+            </li>
+            }
+        </ul>
+        <nav class="slides-navigation slidez">
+            <a href="javascript:;" class="next">
+                <i class="fa fa-angle-right"></i>
+            </a>
+            <a href="javascript:;" class="prev">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        </nav>
+    </div>
+    <!-- End of Superslide -->
+</section>

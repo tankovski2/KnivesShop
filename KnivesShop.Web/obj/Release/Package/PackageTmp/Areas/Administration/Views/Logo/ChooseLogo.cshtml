@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "ChooseLogo";
+}
+
+<section class="full-height-width scrolable">
+    <h2>ChooseLogo</h2>
+    @using (Html.BeginForm("Change", "Logo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken();
+        @Html.ValidationSummary(true)
+        <div class="form-horizontal">
+            <div class="form-group">
+                @Html.Label("Current logo", new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    <img src="@KnivesShop.Web.Helpers.PathHelper.LogoImage" class="logo" />
+                </div>
+            </div>
+            <div class="form-group">
+                @Html.Label("Choose logo", new { @class = "col-md-2 control-label" })
+                <div class="col-md-10">
+                    <input type="file" name="file" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Change" class="btn btn-dark" accept='image/*' />
+                </div>
+            </div>
+        </div>
+    }
+</section>
