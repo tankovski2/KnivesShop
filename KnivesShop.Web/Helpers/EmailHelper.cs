@@ -18,7 +18,7 @@ namespace KnivesShop.Web.Helpers
         public static void MakeOrder(OrderArticleViewModel orderModel)
         {
             MailAddress fromMail = new MailAddress(AppEmail);
-            MailAddress toMail = new MailAddress("ov4arq@abv.bg");
+            MailAddress toMail = new MailAddress("greatwhite@abv.bg");
             MailMessage message = new MailMessage(fromMail, toMail);
 
             message.Subject = "Order for "+orderModel.ArticlesNames;
