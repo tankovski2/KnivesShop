@@ -25,3 +25,17 @@ E:\GithubRepository\KnivesShop\KnivesShop\KnivesShop.Models\bin\Debug\Microsoft.
 E:\GithubRepository\KnivesShop\KnivesShop\KnivesShop.Models\obj\Debug\KnivesShop.Models.csprojResolveAssemblyReference.cache
 E:\GithubRepository\KnivesShop\KnivesShop\KnivesShop.Models\obj\Debug\KnivesShop.Models.dll
 E:\GithubRepository\KnivesShop\KnivesShop\KnivesShop.Models\obj\Debug\KnivesShop.Models.pdb
+E:\YabolkaProjects\Svn-Folders\KnivesShop\KnivesShop\KnivesShop.Models\bin\Debug\KnivesShop.Models.dll.config
+E:\YabolkaProjects\Svn-Folders\KnivesShop\KnivesShop\KnivesShop.Models\bin\Debug\KnivesShop.Models.dll
+E:\YabolkaProjects\Svn-Folders\KnivesShop\KnivesShop\KnivesShop.Models\bin\Debug\KnivesShop.Models.pdb
+E:\YabolkaProjects\Svn-Folders\KnivesShop\KnivesShop\KnivesShop.Models\bin\Debug\EntityFramework.dll
+E:\YabolkaProjects\Svn-Folders\KnivesShop\KnivesShop\KnivesShop.Models\bin\Debug\EntityFramework.SqlServer.dll
+E:\YabolkaProjects\Svn-Folders\KnivesShop\KnivesShop\KnivesShop.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\YabolkaProjects\Svn-Folders\KnivesShop\KnivesShop\KnivesShop.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\YabolkaProjects\Svn-Folders\KnivesShop\KnivesShop\KnivesShop.Models\bin\Debug\EntityFramework.xml
+E:\YabolkaProjects\Svn-Folders\KnivesShop\KnivesShop\KnivesShop.Models\bin\Debug\EntityFramework.SqlServer.xml
+E:\YabolkaProjects\Svn-Folders\KnivesShop\KnivesShop\KnivesShop.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\YabolkaProjects\Svn-Folders\KnivesShop\KnivesShop\KnivesShop.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\YabolkaProjects\Svn-Folders\KnivesShop\KnivesShop\KnivesShop.Models\obj\Debug\KnivesShop.Models.csprojResolveAssemblyReference.cache
+E:\YabolkaProjects\Svn-Folders\KnivesShop\KnivesShop\KnivesShop.Models\obj\Debug\KnivesShop.Models.dll
+E:\YabolkaProjects\Svn-Folders\KnivesShop\KnivesShop\KnivesShop.Models\obj\Debug\KnivesShop.Models.pdb

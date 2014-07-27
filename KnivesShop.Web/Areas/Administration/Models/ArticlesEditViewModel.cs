@@ -47,6 +47,8 @@ namespace KnivesShop.Web.Areas.Administration.Models
         [Required]
         public int Cateory { get; set; }
 
+        public bool IsSelectedForTopArticle { get; set; }
+
         //The search criterias so we can return in tha same page 
         #region SearchProperties
         [HiddenInput(DisplayValue = false)]
@@ -66,9 +68,6 @@ namespace KnivesShop.Web.Areas.Administration.Models
 
         [HiddenInput(DisplayValue = false)]
         public int PageNumber { get; set; }
-
-        [HiddenInput(DisplayValue = false)]
-        public bool IsSelectedForTopArticle { get; set; }
         #endregion
 
         public Article TransformToArticle()
