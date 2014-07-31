@@ -10,20 +10,20 @@ namespace KnivesShop.Web.Helpers
 {
     public static class EmailHelper
     {
-        private const string AppEmail = "Test";
-        private const string AppEmailPass = "test";
-        private const string AppEmailHostName = "mail.test.com";
+        private const string AppEmail = "***";
+        private const string AppEmailPass = "***";
+        private const string AppEmailHostName = "***";
         private const int AppEmailHostPort = 26;
 
         public static void MakeOrder(OrderArticleViewModel orderModel)
         {
             MailAddress fromMail = new MailAddress(AppEmail);
-            MailAddress toMail = new MailAddress("greatwhite@abv.bg");
+            MailAddress toMail = new MailAddress(orderModel.ClientEmail);
             MailMessage message = new MailMessage(fromMail, toMail);
 
-            message.Subject = "Order for "+orderModel.ArticlesNames;
-            string orderBody = string.Format("Article name: {1}{0}Amount of articles: {2}{0}Client name: {3}{0}Client e-mail: {4}{0}" +
-            "Client phone: {5}{0}Client address: {6}{0}Additional info: {7}{0}", Environment.NewLine, orderModel.ArticlesNames, orderModel.AmountOfArticles,
+            message.Subject = "Order from "+orderModel.ClientName;
+            string orderBody = string.Format("Articles:{0}{1}{0} Client name: {2}{0}Client e-mail: {3}{0}" +
+            "Client phone: {4}{0}Client address: {5}{0}Additional info: {6}{0}", Environment.NewLine, orderModel.ArticlesNames,
             orderModel.ClientName, orderModel.ClientEmail, orderModel.ClientPhone, orderModel.ClientAddress, orderModel.AdditionalInfo);
             message.Body = orderBody;
             message.IsBodyHtml = false;

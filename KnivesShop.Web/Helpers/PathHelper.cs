@@ -48,17 +48,6 @@ namespace KnivesShop.Web.Helpers
             }
         }
 
-        public static string LogoCssFileAbsolutePath
-        {
-            get
-            {
-                string relativeFolderPath = ConfigurationManager.AppSettings["LogoCssFilePath"];
-                string absoluteFolderPath = AppDomain.CurrentDomain.BaseDirectory + relativeFolderPath;
-
-                return absoluteFolderPath;
-            }
-        }
-
         public static string ArticlesImagesAbsolutePath
         {
             get

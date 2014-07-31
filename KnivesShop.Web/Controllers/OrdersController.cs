@@ -56,7 +56,8 @@ namespace KnivesShop.Web.Controllers
             }
             if (ModelState.IsValid)
             {
-                EmailHelper.MakeOrder(orderModel);
+                //ToDo uncomment and change e-mail settings
+                //EmailHelper.MakeOrder(orderModel);
                 string msg = Messages.SuccessOrder + orderModel.ArticlesNames;
                 return RedirectToAction("Index", "Home")
                     .WithSuccess(msg);
