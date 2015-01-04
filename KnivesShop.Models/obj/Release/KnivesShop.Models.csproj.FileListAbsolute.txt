@@ -12,3 +12,17 @@ E:\Projects\KnivesShop\KnivesShop.Models\bin\Release\Microsoft.AspNet.Identity.E
 E:\Projects\KnivesShop\KnivesShop.Models\obj\Release\KnivesShop.Models.csprojResolveAssemblyReference.cache
 E:\Projects\KnivesShop\KnivesShop.Models\obj\Release\KnivesShop.Models.dll
 E:\Projects\KnivesShop\KnivesShop.Models\obj\Release\KnivesShop.Models.pdb
+E:\OldLaptopFiles\YabolkaProjects\Projects\KnivesShop\KnivesShop.Models\bin\Release\KnivesShop.Models.dll.config
+E:\OldLaptopFiles\YabolkaProjects\Projects\KnivesShop\KnivesShop.Models\bin\Release\KnivesShop.Models.dll
+E:\OldLaptopFiles\YabolkaProjects\Projects\KnivesShop\KnivesShop.Models\bin\Release\KnivesShop.Models.pdb
+E:\OldLaptopFiles\YabolkaProjects\Projects\KnivesShop\KnivesShop.Models\bin\Release\EntityFramework.dll
+E:\OldLaptopFiles\YabolkaProjects\Projects\KnivesShop\KnivesShop.Models\bin\Release\EntityFramework.SqlServer.dll
+E:\OldLaptopFiles\YabolkaProjects\Projects\KnivesShop\KnivesShop.Models\bin\Release\Microsoft.AspNet.Identity.Core.dll
+E:\OldLaptopFiles\YabolkaProjects\Projects\KnivesShop\KnivesShop.Models\bin\Release\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\OldLaptopFiles\YabolkaProjects\Projects\KnivesShop\KnivesShop.Models\bin\Release\EntityFramework.xml
+E:\OldLaptopFiles\YabolkaProjects\Projects\KnivesShop\KnivesShop.Models\bin\Release\EntityFramework.SqlServer.xml
+E:\OldLaptopFiles\YabolkaProjects\Projects\KnivesShop\KnivesShop.Models\bin\Release\Microsoft.AspNet.Identity.Core.xml
+E:\OldLaptopFiles\YabolkaProjects\Projects\KnivesShop\KnivesShop.Models\bin\Release\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\OldLaptopFiles\YabolkaProjects\Projects\KnivesShop\KnivesShop.Models\obj\Release\KnivesShop.Models.csprojResolveAssemblyReference.cache
+E:\OldLaptopFiles\YabolkaProjects\Projects\KnivesShop\KnivesShop.Models\obj\Release\KnivesShop.Models.dll
+E:\OldLaptopFiles\YabolkaProjects\Projects\KnivesShop\KnivesShop.Models\obj\Release\KnivesShop.Models.pdb

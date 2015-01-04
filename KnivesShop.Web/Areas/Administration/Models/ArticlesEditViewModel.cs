@@ -1,8 +1,5 @@
 ﻿using KnivesShop.Models;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
@@ -49,26 +46,8 @@ namespace KnivesShop.Web.Areas.Administration.Models
 
         public bool IsSelectedForTopArticle { get; set; }
 
-        //The search criterias so we can return in tha same page 
-        #region SearchProperties
         [HiddenInput(DisplayValue = false)]
-        public int? CategoryId { get; set; }
-
-        [HiddenInput(DisplayValue = false)]
-        public int? FromPrice { get; set; }
-
-        [HiddenInput(DisplayValue = false)]
-        public int? ToPrice { get; set; }
-
-        [HiddenInput(DisplayValue = false)]
-        public string SearchSubstring { get; set; }
-
-        [HiddenInput(DisplayValue = false)]
-        public bool? IsTopArticle { get; set; }
-
-        [HiddenInput(DisplayValue = false)]
-        public int PageNumber { get; set; }
-        #endregion
+        public string ReturnUrl { get; set; }
 
         public Article TransformToArticle()
         {
@@ -100,21 +79,6 @@ namespace KnivesShop.Web.Areas.Administration.Models
                 Price = article.Price,
                 Cateory = article.CateoryId
             };
-        }
-
-        public ArticlesAdminSearchModel GenerateSearchModel()
-        {
-
-            return new ArticlesAdminSearchModel
-            {
-                CategoryId = this.CategoryId,
-                FromPrice = this.FromPrice,
-                ToPrice = this.ToPrice,
-                IsTopArticle = this.IsTopArticle,
-                PageNumber = this.PageNumber,
-                SearchSubstring = this.SearchSubstring
-            };
-
         }
     }
 }

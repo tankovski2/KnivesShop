@@ -52,15 +52,15 @@ namespace KnivesShop.Web.Helpers
                 {
                     File.Delete(imagePath);
                 }
-                //else
-                //{
-                //    throw new ArgumentException("Articles old image can not be found");
-                //}
+                else
+                {
+                    throw new ArgumentException("Articles old image can not be found");
+                }
             }
-            //else
-            //{
-            //    throw new ArgumentException("The path of articles old image  is not correct");
-            //}
+            else
+            {
+                throw new ArgumentException("The path of articles old image  is not correct");
+            }
         }
 
         public static void DeleteLogo(string logoName)
@@ -77,10 +77,6 @@ namespace KnivesShop.Web.Helpers
             if (Regex.IsMatch(file.ContentType, "image/\\S+"))
             {
                 string absoluteFilePath = PathHelper.LogoImagesAbsolutePath + file.FileName;
-                if (!Directory.Exists(PathHelper.LogoImagesAbsolutePath))
-                {
-                    Directory.CreateDirectory(PathHelper.LogoImagesAbsolutePath);
-                }
                 if (File.Exists(absoluteFilePath))
                 {
                     File.Delete(absoluteFilePath);

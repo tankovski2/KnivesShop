@@ -9,6 +9,7 @@
     int? toPrice = ViewBag.ToPrice;
     string searchSubstring = ViewBag.SearchSubstirng;
     bool? isTopArticle = ViewBag.IsTopArticle;
+    string returnUrl = ViewBag.CurrentUrl;
 }
 <section class="full-height-width scrolable">
     <h2>Articles list</h2>
@@ -17,12 +18,7 @@
         @Html.ActionLink("Create New", "Create", new
    {
        area = "Administration",
-       categoryId = categoryId,
-       pageNumber = pageNumber,
-       fromPrice = fromPrice,
-       toPrice = toPrice,
-       searchSubstring = searchSubstring,
-       isTopArticle = isTopArticle
+       returnUrl = returnUrl
    }, new { @class = " btn btn-success" })
     </p>
     <table class="table">
@@ -62,34 +58,19 @@
                {
                    id = item.Id,
                    area = "Administration",
-                   categoryId = categoryId,
-                   pageNumber = pageNumber,
-                   fromPrice = fromPrice,
-                   toPrice = toPrice,
-                   searchSubstring = searchSubstring,
-                   isTopArticle = isTopArticle
+                   returnUrl = returnUrl
                }, new { @class = "btn btn-primary" }) |
                     @Html.ActionLink("Details", "Details", new
                {
                    id = item.Id,
                    area = "Administration",
-                   categoryId = categoryId,
-                   pageNumber = pageNumber,
-                   fromPrice = fromPrice,
-                   toPrice = toPrice,
-                   searchSubstring = searchSubstring,
-                   isTopArticle = isTopArticle
+                   returnUrl = returnUrl
                }, new { @class = "btn btn-info" }) |
                     @Html.ActionLink("Delete", "Delete", new
                {
                    id = item.Id,
                    area = "Administration",
-                   categoryId = categoryId,
-                   pageNumber = pageNumber,
-                   fromPrice = fromPrice,
-                   toPrice = toPrice,
-                   searchSubstring = searchSubstring,
-                   isTopArticle = isTopArticle
+                   returnUrl = returnUrl
                }, new { @class = "btn btn-danger" })
                 </td>
             </tr>

@@ -1,10 +1,7 @@
 ﻿using KnivesShop.Models;
-using KnivesShop.Models.Attributes;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace KnivesShop.Web.Areas.Administration.Models
 {
@@ -12,10 +9,12 @@ namespace KnivesShop.Web.Areas.Administration.Models
     {
         [Required]
         [Display(Prompt = "Enter bulgarian name")]
+        [StringLength(200, ErrorMessage = "NameBg cannot be longer than 200 characters.")]
         public string NameBg { get; set; }
 
         [Required]
         [Display(Prompt = "Enter english name")]
+        [StringLength(200, ErrorMessage = "NameEn cannot be longer than 200 characters.")]
         public string NameEn { get; set; }
 
         [Required]
@@ -42,6 +41,9 @@ namespace KnivesShop.Web.Areas.Administration.Models
         public int CateoryId { get; set; }
 
         public bool IsSelectedForTopArticle { get; set; }
+
+        [HiddenInput(DisplayValue = false)]
+        public string ReturnUrl { get; set; }
 
         public Article TransformToArticle()
         {

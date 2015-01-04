@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="OrderMail" xml:space="preserve">
+    <value>You successfully orderderd  :</value>
+  </data>
+  <data name="OrderMailSubject" xml:space="preserve">
+    <value>Order from http://knivesshop.tankovski.com/</value>
+  </data>
   <data name="SuccessOrder" xml:space="preserve">
     <value>"You successfully ordered article "</value>
   </data>

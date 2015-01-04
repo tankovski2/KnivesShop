@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -66,12 +63,13 @@ namespace KnivesShop.Web.Areas.Administration.Controllers
                 .Skip((searchModel.PageNumber - 1) * PageSize).Take(PageSize).ToList();
 
             ViewBag.Pages = numberOfPages;
+            ViewBag.CurrentUrl = Request.Url.AbsoluteUri;
             AddSearchCriterias(searchModel);
 
             return View(articlesToDisplay);
         }
 
-        public ActionResult Details(int? id, ArticlesAdminSearchModel searchModel)
+        public ActionResult Details(int? id, string returnUrl)
         {
             if (id == null)
             {
@@ -83,19 +81,15 @@ namespace KnivesShop.Web.Areas.Administration.Controllers
                 return HttpNotFound();
             }
             ArticlesDetailViewModel articleModel = ArticlesDetailViewModel.TransformToViewModel(article);
-            //AddSearchCriterias(searchModel);
 
             return View(articleModel);
         }
 
-        public ActionResult Create(ArticlesAdminSearchModel searchModel)
+        public ActionResult Create(string returnUrl)
         {
             return View();
         }
 
-        // POST: /Administration/ArticlesAdmin/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(ArticleCreateViewModel article)
@@ -107,14 +101,14 @@ namespace KnivesShop.Web.Areas.Administration.Controllers
                 Data.Articles.Add(articleEntity);
                 Data.SaveChanges();
 
-                return RedirectToAction("Details", new { id = articleEntity.Id })
+                return RedirectToAction("Details", new { id = articleEntity.Id, returnUrl= article.ReturnUrl })
                     .WithSuccess(string.Format(_msg, article.NameEn, "created"));
             }
 
             return View(article);
         }
 
-        public ActionResult Edit(int? id, ArticlesAdminSearchModel searchModel)
+        public ActionResult Edit(int? id, string returnUrl)
         {
             if (id == null)
             {
@@ -144,16 +138,15 @@ namespace KnivesShop.Web.Areas.Administration.Controllers
                 }
                 Data.Articles.Update(articleEntity);
                 Data.SaveChanges();
-                ArticlesAdminSearchModel searchModel = article.GenerateSearchModel();
-
-                return RedirectToAction("Index", searchModel)
+               
+                return Redirect(article.ReturnUrl)
                     .WithSuccess(string.Format(_msg, article.NameEn, "edited"));
             }
 
             return View(article);
         }
 
-        public ActionResult Delete(int? id, ArticlesAdminSearchModel searchModel)
+        public ActionResult Delete(int? id, string returnUrl)
         {
             if (id == null)
             {
@@ -171,14 +164,14 @@ namespace KnivesShop.Web.Areas.Administration.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id, ArticlesAdminSearchModel searchModel)
+        public ActionResult DeleteConfirmed(int id, string returnUrl)
         {
             Article article = Data.Articles.GetById((int)id);
             FileHelper.DeleteImage(article.Image);
             Data.Articles.Delete(article);
             Data.SaveChanges();
 
-            return RedirectToAction("Index", searchModel)
+            return Redirect(returnUrl)
                 .WithSuccess(string.Format(_msg, article.NameEn, "deleted"));
         }
 

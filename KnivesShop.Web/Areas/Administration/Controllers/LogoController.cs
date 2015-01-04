@@ -1,8 +1,4 @@
 ﻿using KnivesShop.Web.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 using KnivesShop.Web.Infrastructure.Alerts;
@@ -26,8 +22,8 @@ namespace KnivesShop.Web.Areas.Administration.Controllers
                 Configuration myConfiguration = System.Web.Configuration.WebConfigurationManager.OpenWebConfiguration("~");
                 string name = myConfiguration.AppSettings.Settings["LogoImage"].Value;
 
-                FileHelper.SaveLogo(file);
                 FileHelper.DeleteLogo(name);
+                FileHelper.SaveLogo(file);
 
                 myConfiguration.AppSettings.Settings["LogoImage"].Value = file.FileName;
                 myConfiguration.Save();

@@ -46,14 +46,14 @@
                     </a>
                 </div>
                 <div id="languages-container">
-                    @Html.ActionLink(" ", "ChangeCulture", "Culture",
+                    @Html.ActionLink("БГ", "ChangeCulture", "Culture",
                         new
                         {
                             lang = (int)KnivesShop.Models.Enums.Culture.bg,
                             returnUrl = this.Request.RawUrl,
                             area = ""
                         }, new { @class = "culture-link", id = "bg-flag" })
-                    @Html.ActionLink(" ", "ChangeCulture", "Culture",
+                    @Html.ActionLink("EN", "ChangeCulture", "Culture",
                         new
                         {
                             lang = (int)KnivesShop.Models.Enums.Culture.en,

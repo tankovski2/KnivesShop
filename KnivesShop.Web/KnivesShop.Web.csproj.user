@@ -9,7 +9,8 @@
     <WebStackScaffolding_DbContextTypeFullName>KnivesShop.Data.ApplicationDbContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
     <ProjectView>ProjectFiles</ProjectView>
-    <NameOfLastUsedPublishProfile>KnivesShop</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>KnivesShop-tankovski-WebDeploy</NameOfLastUsedPublishProfile>
+    <WebStackScaffolding_ViewDialogWidth>600</WebStackScaffolding_ViewDialogWidth>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

@@ -27,7 +27,7 @@
 
     <div>
         @{
-            string backUrl = "/Administration/ArticlesAdmin/Index" + Request.Url.Query;
+            string backUrl = Request.QueryString["returnUrl"] == null ? "/Administration/ArticlesAdmin/Index" + Request.Url.Query : Request.QueryString["returnUrl"];
         }
         <a href="@backUrl" class="btn btn-default">Back to List</a>
     </div>

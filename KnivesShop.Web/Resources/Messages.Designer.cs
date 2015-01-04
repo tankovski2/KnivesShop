@@ -61,6 +61,24 @@ namespace KnivesShop.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You successfully orderderd  :.
+        /// </summary>
+        public static string OrderMail {
+            get {
+                return ResourceManager.GetString("OrderMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order from http://knivesshop.tankovski.com/.
+        /// </summary>
+        public static string OrderMailSubject {
+            get {
+                return ResourceManager.GetString("OrderMailSubject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &quot;You successfully ordered article &quot;.
         /// </summary>
         public static string SuccessOrder {

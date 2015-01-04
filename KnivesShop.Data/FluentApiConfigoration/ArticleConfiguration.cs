@@ -19,8 +19,8 @@ namespace KnivesShop.Data.FluentApiConfigoration
                 .WithMany(categegory => categegory.Articles)
                 .HasForeignKey(article => article.CateoryId);
 
-            Property(article => article.NameBg).HasMaxLength(50).IsRequired();
-            Property(article => article.NameEn).HasMaxLength(50).IsRequired();
+            Property(article => article.NameBg).HasMaxLength(200).IsRequired();
+            Property(article => article.NameEn).HasMaxLength(200).IsRequired();
             Property(article => article.DescriptionBg).IsRequired();
             Property(article => article.DescriptionEn).IsRequired();
             Property(article => article.Image).IsRequired();

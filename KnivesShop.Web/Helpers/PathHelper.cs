@@ -27,17 +27,6 @@ namespace KnivesShop.Web.Helpers
             }
         }
 
-        public static string AppDataAbsolutePath
-        {
-            get
-            {
-                string relativeFolderPath = ConfigurationManager.AppSettings["DataDir"];
-                string absoluteFolderPath = AppDomain.CurrentDomain.BaseDirectory + relativeFolderPath;
-
-                return absoluteFolderPath;
-            }
-        }
-
         public static string LogoImagesRelativeUrl
         {
             get
@@ -45,6 +34,17 @@ namespace KnivesShop.Web.Helpers
                 string relativeUrl = ConfigurationManager.AppSettings["LogoImagesPath"];
 
                 return relativeUrl;
+            }
+        }
+
+        public static string LogoCssFileAbsolutePath
+        {
+            get
+            {
+                string relativeFolderPath = ConfigurationManager.AppSettings["LogoCssFilePath"];
+                string absoluteFolderPath = AppDomain.CurrentDomain.BaseDirectory + relativeFolderPath;
+
+                return absoluteFolderPath;
             }
         }
 

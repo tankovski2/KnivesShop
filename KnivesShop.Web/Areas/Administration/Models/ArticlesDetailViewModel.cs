@@ -1,10 +1,5 @@
 ﻿using KnivesShop.Models;
 using KnivesShop.Web.Helpers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Web;
 
 namespace KnivesShop.Web.Areas.Administration.Models
 {

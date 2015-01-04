@@ -4,7 +4,6 @@ using KnivesShop.Models.Enums;
 using KnivesShop.Web.Models;
 using KnivesShop.Web.Resources;
 using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Net;

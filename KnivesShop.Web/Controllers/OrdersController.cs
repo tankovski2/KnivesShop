@@ -42,10 +42,12 @@ namespace KnivesShop.Web.Controllers
             {
                 string articleName = CurrentCulture == Culture.bg.ToString()? 
                     item.NameBg: item.NameEn;
-                orderStrignBuilder.AppendLine(string.Format("{0} - {1} " + units, articleName, item.Quantity));
+                orderStrignBuilder.AppendLine(string.Format("{0} - {1} {2}, ", articleName, item.Quantity, units));
             }
+            orderStrignBuilder.Remove(orderStrignBuilder.Length - 4, 2);
 
-            return View(new OrderArticleViewModel { ArticlesNames = orderStrignBuilder.ToString() });
+            return View(new OrderArticleViewModel { ArticlesNames = orderStrignBuilder.ToString(),
+                ArticleIds = string.Join(",",SessionHelper.BasketItems.Select(item=>item.Id)) });
         }
 
         public ActionResult SendOrder(OrderArticleViewModel orderModel)
@@ -56,9 +58,16 @@ namespace KnivesShop.Web.Controllers
             }
             if (ModelState.IsValid)
             {
-                //ToDo uncomment and change e-mail settings
-                //EmailHelper.MakeOrder(orderModel);
+                var orderedItemsIds = orderModel.ArticleIds.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                IEnumerable<ArticleMailViewModel> orderedItems = Data.Articles.All()
+                    .Where(article => orderedItemsIds.Contains(article.Id.ToString()))
+                     .Select(ArticleMailViewModel.FromArticle(CurrentCulture)).ToList();
+                   
+
+                EmailHelper.MakeOrder(orderModel,orderedItems);
                 string msg = Messages.SuccessOrder + orderModel.ArticlesNames;
+                SessionHelper.BasketItems = null;
+                
                 return RedirectToAction("Index", "Home")
                     .WithSuccess(msg);
             }

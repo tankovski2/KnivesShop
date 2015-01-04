@@ -16,11 +16,8 @@ namespace KnivesShop.Web.Models
         [Display(Name = "ArticlesNames", ResourceType = typeof(DisplayNames))]
         public string ArticlesNames { get; set; }
 
-        //[Display(Name = "AmountOfArticles",  Prompt="EnterAmount", ResourceType = typeof(DisplayNames))]
-        //[Required(ErrorMessageResourceName = "FieldRequired", ErrorMessageResourceType = typeof(Errors))]
-        //[MustBeNumeric(ErrorMessageResourceName = "MustBeNumber", ErrorMessageResourceType = typeof(Errors))]
-        //[Range(1, int.MaxValue, ErrorMessageResourceName = "MustBeBiggerThanZero", ErrorMessageResourceType = typeof(Errors))]
-        //public string AmountOfArticles { get; set; }
+        [HiddenInput(DisplayValue = false)]
+        public string ArticleIds { get; set; }
 
         [Display(Name = "ClientName", Prompt = "EnterName", ResourceType = typeof(DisplayNames))]
         [Required(ErrorMessageResourceName = "FieldRequired", ErrorMessageResourceType = typeof(Errors))]

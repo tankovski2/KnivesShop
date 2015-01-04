@@ -54,3 +54,6 @@ E:\Projects\KnivesShop\KnivesShop.Tests\bin\Debug\bg\KnivesShop.Web.resources.dl
 E:\Projects\KnivesShop\KnivesShop.Tests\obj\Debug\KnivesShop.Tests.csprojResolveAssemblyReference.cache
 E:\Projects\KnivesShop\KnivesShop.Tests\obj\Debug\KnivesShop.Tests.dll
 E:\Projects\KnivesShop\KnivesShop.Tests\obj\Debug\KnivesShop.Tests.pdb
+E:\Projects\KnivesShop\KnivesShop.Tests\bin\Debug\CaptchaMvc.dll
+E:\Projects\KnivesShop\KnivesShop.Tests\bin\Debug\CaptchaMvc.pdb
+E:\Projects\KnivesShop\KnivesShop.Tests\bin\Debug\CaptchaMvc.xml
